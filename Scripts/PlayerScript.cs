@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
 {
     public Transform directionForward;
     bool buttonCheckForward = false;
-    public float speed = 20;
+    float speed = 0;
     public XRController right;
     Rigidbody playerRb;
     // Start is called before the first frame update
@@ -21,16 +21,16 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         //buttonCheckForward = false;
-        //InputHelpers.IsPressed(right.inputDevice, InputHelpers.Button.PrimaryButton, out buttonCheckForward);
+        InputHelpers.IsPressed(right.inputDevice, InputHelpers.Button.PrimaryButton, out buttonCheckForward);
 
-        /*if (buttonCheckForward)
+        if (buttonCheckForward)
         {
             speed = 20;
         }
         else
         {
             speed = 0;
-        }*/
+        }
         playerRb.AddForce(directionForward.forward * speed * Time.deltaTime);
         //Debug.Log(buttonCheckForward);
     }

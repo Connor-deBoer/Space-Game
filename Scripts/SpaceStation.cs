@@ -13,6 +13,6 @@ public class SpaceStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SpaceStationManager.Spin(2.5f, gameObject.transform, Vector3.up); 
+        transform.Rotate(new Vector3(2f, 2f, 0) * Time.deltaTime);  
     }
 }

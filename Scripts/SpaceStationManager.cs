@@ -22,7 +22,8 @@ public static class SpaceStationManager
     /// <param name="BDC">Bottom Dead Center or how far down you want the door to go</param>
     public static void DoorOpen(this Transform door, Vector3 BDC)
     {
-        door.localPosition = BDC;
+        Vector3 directionDown = door.position - BDC;
+        door.Translate(directionDown);
     }
 
     /// <summary>
@@ -32,7 +33,8 @@ public static class SpaceStationManager
     /// <param name="TDC">Top Dead Center or where it should return to</param>
     public static void DoorClose(this Transform door, Vector3 TDC)
     {
-        door.localPosition = TDC;
+        Vector3 directionUp = door.position - TDC;
+        door.Translate(directionUp);
     }
 
     /// <summary>
@@ -48,7 +50,7 @@ public static class SpaceStationManager
         if(particleSystem.particleCount > currentParticleCount)
         {
             audioSource.Play();
-            //Debug.Log("play");
+            Debug.Log("play");
         }
     }
 }
